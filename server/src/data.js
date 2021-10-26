@@ -26,6 +26,7 @@ Data.getOneItem = async (req, res) => {
   res.status(200).json(items[0]);
 };
 
+// delete the item based on the id that is passed in
 Data.deleteOneItem = async (req, res) => {
   const id = req.params.id;
   const items = await ItemModel.findOneAndDelete({ _id: id });
