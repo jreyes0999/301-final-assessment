@@ -23,7 +23,7 @@ class Items extends React.Component {
                 <td>{item.description}</td>
                 <td>
                   <Button
-                    onClick={props.delete}
+                    onClick={this.props.delete}
                     data-testid={`delete-button-${item.name}`}
                   >
                     Delete Item

@@ -2,7 +2,7 @@
 
 const ItemModel = require("./item-model.js");
 
-const Data = { ItemModel };
+const Data = {};
 
 Data.addAnItem = async (req, res, next) => {
   try {

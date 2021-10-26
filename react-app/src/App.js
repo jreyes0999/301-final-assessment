@@ -17,7 +17,7 @@ class App extends React.Component {
   }
 
   addItem = async (item) => {
-    await post(`http://localhost:3000/items`, item);
+    await axios.post(`http://localhost:3000/items`, item);
     this.getItems();
   };
 
@@ -28,7 +28,7 @@ class App extends React.Component {
   };
 
   deleteItem = async (item) => {
-    await post(`http:localhost:3000/items`, item);
+    await axios.get(`http:localhost:3000/items`, item);
     this.deleteItems();
   };
 
