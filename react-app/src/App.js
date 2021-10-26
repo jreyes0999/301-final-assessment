@@ -1,32 +1,36 @@
-import React from 'react';
+import React from "react";
 
-import axios from 'axios';
+import axios from "axios";
 
-import { Navbar, Container, Row, Col } from 'react-bootstrap';
-import Form from './components/AddItem.js';
-import Items from './components/Items.js';
+import { Navbar, Container, Row, Col } from "react-bootstrap";
+import Form from "./components/AddItem.js";
+import Items from "./components/Items.js";
 
 const API_SERVER = process.env.REACT_APP_API;
 
 class App extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      items: []
-    }
+      items: [],
+    };
   }
 
   addItem = async (item) => {
-    await post(`${API_SERVER}/items`, item);
+    await post(`http://localhost:3000/items`, item);
     this.getItems();
-  }
+  };
 
   getItems = async () => {
-    const response = await axios.get(`${API_SERVER}/items`);
+    const response = await axios.get(`http://localhost:3000/items`);
     const items = response.data;
     this.setState({ items });
-  }
+  };
+
+  deleteItem = async (item) => {
+    await post(`http:localhost:3000/items`, item);
+    this.deleteItems();
+  };
 
   async componentDidMount() {
     await this.getItems();
@@ -40,7 +44,9 @@ class App extends React.Component {
         </Navbar>
         <Container fluid>
           <Row>
-            <Col><h1>Our Items</h1></Col>
+            <Col>
+              <h1>Our Items</h1>
+            </Col>
           </Row>
           <Row>
             <Col md="auto">
