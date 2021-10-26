@@ -28,7 +28,7 @@ Data.getOneItem = async (req, res) => {
 
 Data.deleteOneItem = async (req, res) => {
   const id = req.params.id;
-  const items = await ItemModel.find({ _id: id });
+  const items = await ItemModel.findOneAndDelete({ _id: id });
   res.status(200).json(items[0]);
 };
 

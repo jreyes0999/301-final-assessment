@@ -10,9 +10,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/iteems", Data.getAllItems);
+app.get("/items", Data.getAllItems);
 app.get("/items/:id", Data.getOneItem);
 app.post("/items", Data.addAnItem);
+// added a support for delete
 app.delete("/items/:id", Data.deleteOneItem);
 
 app.use("*", (req, res) => {
